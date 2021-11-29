@@ -1,0 +1,15 @@
+{
+  "name": "poo-intro",
+  "version": "1.0.0",
+  "description": "Introduction à la POO avec TS",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aélion <jean-luc.aubert@aelion.fr>",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}
