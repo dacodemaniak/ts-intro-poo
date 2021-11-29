@@ -3,11 +3,10 @@ export class CoffeeMaker {
     private liquid: string = '';
     private energy: string = '';
 
-    public constructor(coffee: string, liquid: string, energy: string) {
-        this.setCoffee(coffee);
-
-        this.liquid = liquid;
-        this.energy = energy;
+    public constructor() {
+        this.coffee = 'arabica';
+        this.liquid = 'eau';
+        this.energy = 'électricité';
     }
 
     public makeCoffee(): string {
@@ -15,8 +14,10 @@ export class CoffeeMaker {
     }
 
     public setCoffee(type: string): void {
-        if (type == 'robusta' || type == 'arabica') {
-            this.coffee = type;
+        const lowerType: string = type.toLocaleLowerCase();
+
+        if (lowerType == 'robusta' || lowerType == 'arabica') {
+            this.coffee = lowerType;
         } else {
             this.coffee = 'arabica';
         }
@@ -24,12 +25,6 @@ export class CoffeeMaker {
 
     public getCoffee(): string {
         return this.coffee;
-    }
-
-    public setLiquid(liquid: string): void {
-        if (liquid == 'eau') {
-            this.liquid = liquid;
-        }
     }
 
     public getLiquid(): string {

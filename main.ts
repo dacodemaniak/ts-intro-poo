@@ -5,8 +5,8 @@ class Main {
 
     public constructor() {
         console.log(`I'm the Main constructor`);
-        this.coffeeMaker = new CoffeeMaker('fraise', 'eau', 'électricité');
-        this.coffeeMaker.setCoffee('robusta');
+        this.coffeeMaker = new CoffeeMaker();
+        this.coffeeMaker.setCoffee('Robusta');
         this.coffeeMaker.setEnergy('Pile nucléaire');
         console.log(this.coffeeMaker.makeCoffee() + ' Energie utilisée : ' + this.coffeeMaker.getEnergy());
     }
