@@ -4,11 +4,16 @@ import { CoffeeMaker } from "./src/coffee-maker";
 import { Robusta } from "./src/robusta";
 
 class Main {
-    public coffeeMaker: CoffeeMaker;
+    public coffeeMaker!: CoffeeMaker;
 
     public constructor() {
         console.log(`I'm the Main constructor`);
 
+        this._buildCoffeeMaker();
+
+    }
+
+    private _buildCoffeeMaker(): void {
         const arabica: Coffee = new Arabica();
 
         const robusta: Coffee = new Robusta();
