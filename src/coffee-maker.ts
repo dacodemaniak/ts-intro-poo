@@ -1,16 +1,17 @@
 import { Arabica } from "./arabica";
 import { Coffee } from "./coffee";
+import { Energy } from "./energy";
 
 export class CoffeeMaker {
     private coffee: Coffee;
     private liquid: string = '';
-    private energy: string = '';
+    private energy: Energy;
 
     public constructor() {
         this.coffee = new Arabica(); // Injection de dépendance
 
         this.liquid = 'eau';
-        this.energy = 'électricité';
+        this.energy = new Energy();
     }
 
     public makeCoffee(): string {
@@ -29,13 +30,11 @@ export class CoffeeMaker {
         return this.liquid;
     }
 
-    public setEnergy(energy: string): void {
-        if (energy == 'électricité' || energy == 'feu') {
-            this.energy = energy;
-        }
+    public setEnergy(energy: Energy): void {
+        this.energy = energy;
     }
 
-    public getEnergy(): string {
+    public getEnergy(): Energy {
         return this.energy;
     }
 }

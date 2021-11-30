@@ -20,8 +20,8 @@ class Main {
 
         this.coffeeMaker = new CoffeeMaker();
         this.coffeeMaker.setCoffee(robusta);
-        this.coffeeMaker.setEnergy('Pile nucléaire');
-        console.log(this.coffeeMaker.makeCoffee() + ' Energie utilisée : ' + this.coffeeMaker.getEnergy());
+        
+        console.log(this.coffeeMaker.makeCoffee() + ' Energie utilisée : ' + this.coffeeMaker.getEnergy().getType());
     }
 }
 
