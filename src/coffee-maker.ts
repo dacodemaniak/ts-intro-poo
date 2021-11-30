@@ -1,11 +1,14 @@
 import { Arabica } from "./arabica";
 import { Coffee } from "./coffee";
+import { CoffeeInterface } from "./coffee-interface";
 import { Energy } from "./energy";
 
 export class CoffeeMaker {
-    private coffee: Coffee;
+    private coffee: CoffeeInterface;
     private liquid: string = '';
     private energy: Energy;
+
+    private static readonly BOILING_DELTA: number = 10;
 
     public constructor() {
         this.coffee = new Arabica(); // Injection de dépendance
@@ -15,14 +18,16 @@ export class CoffeeMaker {
     }
 
     public makeCoffee(): string {
-        return 'Coffee is ready : ' + this.coffee.getType();
+        const boilingRealTime: number = this.energy.getBoilingTime() - CoffeeMaker.BOILING_DELTA;
+
+        return 'Coffee is ready : ' + this.coffee.getType() + ' Timing : ' + boilingRealTime;
     }
 
-    public setCoffee(type: Coffee): void {
+    public setCoffee(type: CoffeeInterface): void {
         this.coffee = type;
     }
 
-    public getCoffee(): Coffee {
+    public getCoffee(): CoffeeInterface {
         return this.coffee;
     }
 
