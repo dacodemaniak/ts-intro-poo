@@ -1,29 +1,27 @@
+import { Arabica } from "./arabica";
+import { Coffee } from "./coffee";
+
 export class CoffeeMaker {
-    private coffee: string = '';
+    private coffee: Coffee;
     private liquid: string = '';
     private energy: string = '';
 
     public constructor() {
-        this.coffee = 'arabica';
+        this.coffee = new Arabica(); // Injection de dépendance
+
         this.liquid = 'eau';
         this.energy = 'électricité';
     }
 
     public makeCoffee(): string {
-        return 'Coffee is ready : ' + this.coffee;
+        return 'Coffee is ready : ' + this.coffee.getType();
     }
 
-    public setCoffee(type: string): void {
-        const lowerType: string = type.toLocaleLowerCase();
-
-        if (lowerType == 'robusta' || lowerType == 'arabica') {
-            this.coffee = lowerType;
-        } else {
-            this.coffee = 'arabica';
-        }
+    public setCoffee(type: Coffee): void {
+        this.coffee = type;
     }
 
-    public getCoffee(): string {
+    public getCoffee(): Coffee {
         return this.coffee;
     }
 
