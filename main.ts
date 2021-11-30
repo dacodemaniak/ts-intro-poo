@@ -1,6 +1,7 @@
 import { Arabica } from "./src/arabica";
 import { Coffee } from "./src/coffee";
 import { CoffeeMaker } from "./src/coffee-maker";
+import { Energy } from "./src/energy";
 import { Robusta } from "./src/robusta";
 
 class Main {
@@ -18,8 +19,12 @@ class Main {
 
         const robusta: Coffee = new Robusta();
 
+        const energy: Energy = new Energy();
+        energy.setType('Gaz');
+
         this.coffeeMaker = new CoffeeMaker();
         this.coffeeMaker.setCoffee(robusta);
+        this.coffeeMaker.setEnergy(energy);
         
         console.log(this.coffeeMaker.makeCoffee() + ' Energie utilisée : ' + this.coffeeMaker.getEnergy().getType());
     }
